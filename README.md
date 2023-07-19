@@ -10,7 +10,7 @@ This is a mini-project that simulates a mock inventory system from an admin pers
 - Mock Inventory Management System
   - Add new items
   - Edit item details
-- Simple and Minimalistic UI
+- Simple and Minimalistic UI (Bootstrap)
 
 ## Requirements
 - Latest version of [miniconda](https://docs.conda.io/en/latest/miniconda.html)
