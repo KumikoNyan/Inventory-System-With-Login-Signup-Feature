@@ -1,0 +1,51 @@
+{% extends 'Myinventoryapp/base.html' %}
+{% load static %}
+
+{% block sidemenu %}
+<div class="col-2 justify-content-left mr-0">
+    <ul class="flex-column pl-5">
+      <li>
+        <a href = "{% url 'add_bottle' pk=v.pk %}">Add a Bottle</a>      
+      </li>
+      <li>
+        <a href = "{% url 'view_supplier' pk=v.pk %}">View Suppliers</a>
+      </li>
+      <li>
+        <a href = "{% url 'ManageAcc' pk=v.pk %}">Manage Account</a>
+      </li>
+      <li>
+        <a href = "{% url 'SignOut' %}">Logout</a>
+    </ul>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <table class="table table-striped">
+        <thead style="background-color: black; color: ghostwhite">
+            <th scope="col">SKU</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Size</th>
+            <th scope="col">Mouth Size</th>
+            <th scope="col">Color</th>
+            <th scope="col">Supplied by:</th>
+            <th scope="col">Current Quantity:</th>
+        </thead>
+        <tbody>
+            {% for b in bottles %}
+            <tr>
+                <td><a href="{% url 'view_bottle_details' pk=b.pk pk1=v.pk %}">{{ b.SKU }}</a></td>
+                <td>{{ b.Brand }}</td>
+                <td>{{ b.Cost }}</td>
+                <td>{{ b.Size }}</td>
+                <td>{{ b.Mouth_Size }}</td>
+                <td>{{ b.Color }}</td>
+                <td>{{ b.Supplied_by.Name }}</td>
+                <td>{{ b.Current_Quantity }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

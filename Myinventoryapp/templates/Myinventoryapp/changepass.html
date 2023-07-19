@@ -1,0 +1,46 @@
+{% extends 'Myinventoryapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-8">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Change Password:</h5>
+        </div>
+        <div class="card-body">
+
+            <form method="POST" action="{% url 'NewPass' pk=v.pk %}">{% csrf_token %}
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="current_passw">Current Password:</label>
+                            <input type="password" class="form-control w-50" id="current_passw" name="current_passw">
+                        </div>
+        
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="new_passw">New Password:</label>
+                            <input type="password" class="form-control w-50" id="new_passw" name="new_passw">
+                        </div>
+        
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="new_passw2">Confirm Password:</label>
+                            <input type="password" class="form-control w-50" id="new_passw2" name="new_passw2">
+                        </div>
+        
+                    </div>
+                </div>
+
+                <button type="submit" class="mt-3 btn btn-success">Confirm Changes</button>
+                <a href="{% url 'ManageAcc' pk=v.pk %}" class="mt-3 ml-3 btn btn-danger">Cancel</a>   
+            </form>
+            {{wrong}}      
+        </div>
+    </div>
+</div>
+{% endblock %}

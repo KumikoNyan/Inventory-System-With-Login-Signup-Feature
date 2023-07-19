@@ -1,0 +1,39 @@
+{% extends 'Myinventoryapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-8">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Account Details:</h5>
+        </div>
+        <div class="card-body">
+
+            <form method="POST" action="{% url 'SignIn' %}">{% csrf_token %}
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="sumuser">Username:</label>
+                            <input class="form-control w-50" id="sumuser" name="sumuser">
+                        </div>
+        
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="sumpass">Password (Admin will never ask for this!):</label>
+                            <input type="password" class="form-control w-50" id="sumpass" name="sumpass">
+                        </div>
+        
+                    </div>
+                </div>
+
+                <button type="submit" class="mt-3 btn btn-success">Sign In</button>
+            </form>
+            <a href="{% url 'Register' %}">Create a new account? Register</a>
+            <div class="alert alert-warning" role="alert">Are you illogical captain? Account exists!</div>        
+        </div>
+    </div>
+</div>
+{% endblock %}

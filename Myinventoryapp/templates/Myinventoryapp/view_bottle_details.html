@@ -1,0 +1,62 @@
+{% extends 'Myinventoryapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-8">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Bottle Details:</h5>
+        </div>
+        <div class="card-body">
+            
+                <div class="form-group">
+                    <label for="SKU">SKU:</label>
+                    <input type="text" class="form-control w-50" id="SKU" name="SKU" value="{{b.SKU}}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="Brand">Brand:</label>
+                    <input type="text" class="form-control w-50" id="Brand" name="Brand" value="{{b.Brand}}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="Cost">Cost:</label>
+                    <input type="text" class="form-control w-50" id="Cost" name="Cost" value="{{b.Cost}}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="Size">Size:</label>
+                    <input type="text" class="form-control w-50" id="Size" name="Size" value="{{b.Size}}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="Mouth_Size">Mouth Size:</label>
+                    <input type="text" class="form-control w-50" id="Mouth_Size" name="Mouth_Size" value="{{b.Mouth_Size}}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="Color">Color:</label>
+                    <input type="text" class="form-control w-50" id="Color" name="Color" value="{{b.Color}}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="avail_supplier">Supplied By:</label>
+                    <input type="text" class="form-control w-50" id="avail_supplier" name="avail_supplier" value="{{b.Supplied_by.Name}}" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="Current_Quantity">Current Quantity:</label>
+                    <input type="text" class="form-control w-50" id="Current_Quantity" name="Current_Quantity" value="{{b.Current_Quantity}}" disabled>
+                </div>
+
+                <a href="{% url 'delete_bottle' pk=b.pk pk1=v.pk %}"  class="mt-3 ml-3 btn btn-danger">Delete</a>
+
+                <a href="{% url 'view_bottles' pk=v.pk %}"  class="mt-3 ml-3 btn btn-dark">Back</a>
+
+            </form>                
+        </div>
+    </div>
+
+</div>
+{% endblock %}

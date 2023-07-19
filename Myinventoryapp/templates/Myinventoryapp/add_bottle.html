@@ -1,0 +1,65 @@
+{% extends 'Myinventoryapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-8">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Type in Bottle Details:</h5>
+        </div>
+        <div class="card-body">
+
+            <form method="POST" action="{% url 'add_bottle' pk=v.pk %}">{% csrf_token %}
+            
+                <div class="row pt-3">
+                    <div class="col">
+                        <label for="sku">SKU:</label>
+                        <input type="text" class="form-control" id="sku" name="sku" placeholder="SKU">
+                    </div>
+                    <div class="col">
+                        <label for="brand">Brand:</label>
+                        <input type="text" class="form-control" id="brand" name="brand" placeholder="Brand">
+                    </div>
+                    <div class="col">
+                        <label for="cost">Cost:</label>
+                        <input type="number" class="form-control" id="cost" name="cost" placeholder="Cost (Number)">
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col">
+                        <label for="size">Size:</label>
+                        <input type="text" class="form-control" id="size" name="size" placeholder="Size">
+                    </div>
+                    <div class="col">
+                        <label for="mouthsize">Mouth Size:</label>
+                        <input type="text" class="form-control" id="mouth" name="mouth" placeholder="Mouth Size">
+                    </div>
+                    <div class="col">
+                        <label for="color">Color:</label>
+                        <input type="text" class="form-control" id="color" name="color" placeholder="Color">
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col">
+                        <label for="supplier">Supplied By:</label>
+                        <select class="form-control" id="supp" name="supp" placeholder="Supplier">
+                            <option value="Meister">Meister, Inc.</option>
+                            <option value="Sailfish">Sailfish, Inc.</option>
+                            <option value="Bucky">Bucky, Inc.</option>
+                        </select>   
+                    </div>
+                    <div class=col>
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" class="form-control" id="quant" name="quant" placeholder="Quantity">
+                    </div>
+                </div>
+
+                <button type="submit" class="mt-3 btn btn-primary">Add Water Bottle</button>
+                <a href="{% url 'view_supplier' pk=v.pk %}" class="mt-3 btn btn-danger">Cancel</a>
+            </form>                
+        </div>
+    </div>
+
+</div>
+{% endblock %}
